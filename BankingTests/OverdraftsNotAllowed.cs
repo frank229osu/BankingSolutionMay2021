@@ -15,7 +15,7 @@ namespace BankingTests
 
         public OverdraftsNotAllowed()
         {
-            _account = new BankAccount();
+            _account = new BankAccount(null);
             _openingBalance = _account.GetBalance();
         }
 

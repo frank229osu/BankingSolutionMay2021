@@ -14,7 +14,7 @@ namespace BankingTests
         public void NewAccountsHaveAppropriateBalance()
         {
             // Given
-            BankAccount account = new BankAccount();
+            BankAccount account = new BankAccount(null);
             decimal expectedOpeningBalance = 5000M;
             // When
             decimal actualBalance = account.GetBalance();

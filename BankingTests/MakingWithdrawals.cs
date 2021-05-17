@@ -13,7 +13,7 @@ namespace BankingTests
         [Fact]
         public void MakingWithdrawalsDecreasesTheBalance()
         {
-            var bankAcount = new BankAccount();
+            var bankAcount = new BankAccount(null);
             var openingBalance = bankAcount.GetBalance();
             var amountToWithdraw = 100M;
 

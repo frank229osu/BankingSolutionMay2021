@@ -1,4 +1,5 @@
 ﻿using BankingDomain;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace BankingTests
         [Fact]
         public void MakingDepositsIncreasesBalance()
         {
-            var account = new BankAccount();
+            var account = new BankAccount(new Mock<ICalculateBonuses>().Object);
             var openingBalance = account.GetBalance();
             var amountToDeposit = 100M;
 
@@ -23,6 +24,14 @@ namespace BankingTests
 
             Assert.Equal(openingBalance + amountToDeposit, account.GetBalance());
 
+        }
+    }
+
+    public class DummyBonusCalculator : ICalculateBonuses
+    {
+        public decimal CalculateTheBonusFor(decimal amountToDeposit, decimal balance)
+        {
+            return 0;
         }
     }
 }
