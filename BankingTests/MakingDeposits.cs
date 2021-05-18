@@ -15,7 +15,7 @@ namespace BankingTests
         [Fact]
         public void MakingDepositsIncreasesBalance()
         {
-            var account = new BankAccount(new Mock<ICalculateBonuses>().Object);
+            var account = new BankAccount(new Mock<ICalculateBonuses>().Object,null);
             var openingBalance = account.GetBalance();
             var amountToDeposit = 100M;
 

@@ -1,4 +1,5 @@
 ﻿using BankingDomain;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace BankingTests
         [Fact]
         public void MakingWithdrawalsDecreasesTheBalance()
         {
-            var bankAcount = new BankAccount(null);
+            var bankAcount = new BankAccount(null, new Mock<INotifyTheFeds>().Object);
             var openingBalance = bankAcount.GetBalance();
             var amountToWithdraw = 100M;
 

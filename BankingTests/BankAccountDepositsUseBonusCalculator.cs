@@ -16,12 +16,12 @@ namespace BankingTests
         public void TheAmountReturnedFromTheBonusCalculatorIsAddedToTheBalance()
         {
             // Given 
-            var stubbedAccount = new Mock<ICalculateBonuses>();
+            var stubbedBonusCalculator = new Mock<ICalculateBonuses>();
            
-            var account = new BankAccount(stubbedAccount.Object);
+            var account = new BankAccount(stubbedBonusCalculator.Object, null);
             var openingBalance = account.GetBalance();
             var amountToDeposit = 100M;
-            stubbedAccount.Setup(b => 
+            stubbedBonusCalculator.Setup(b => 
                 b.CalculateTheBonusFor(amountToDeposit, openingBalance)).Returns(42);
             
 
